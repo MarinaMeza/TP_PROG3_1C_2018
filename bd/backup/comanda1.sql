@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2018 a las 00:27:08
+-- Tiempo de generación: 18-08-2018 a las 06:04:40
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -56,7 +56,7 @@ CREATE TABLE `encuestas` (
 
 CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL
+  `nombre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -104,7 +104,7 @@ CREATE TABLE `itempedido` (
 CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `nombre` varchar(25) COLLATE utf8_spanish2_ci NOT NULL,
+  `nombre` int(25) NOT NULL,
   `clave` varchar(10) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -159,7 +159,7 @@ CREATE TABLE `pedidos` (
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `idSector` int(11) NOT NULL,
-  `precio` float NOT NULL,
+  `idEstado` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -285,7 +285,8 @@ ALTER TABLE `pedidos`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`,`idSector`),
+  ADD PRIMARY KEY (`id`,`idSector`,`idEstado`),
+  ADD KEY `idEstado` (`idEstado`),
   ADD KEY `idSector` (`idSector`);
 
 --
@@ -438,7 +439,8 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`idSector`) REFERENCES `sectores` (`id`);
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`idEstado`) REFERENCES `estados` (`id`),
+  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`idSector`) REFERENCES `sectores` (`id`);
 
 --
 -- Filtros para la tabla `tickets`
