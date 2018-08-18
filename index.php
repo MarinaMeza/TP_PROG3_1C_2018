@@ -14,22 +14,6 @@ $config['addContentLengthHeader'] = false;
 
 $app = new \Slim\App(["settings" => $config]);
 
-// $app->group('/usuario', function () {
- 
-//   $this->get('/', \usuarioApi::class . ':traerTodos')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-  
-//   //$this->get('/{id}', \usuarioApi::class . ':traerUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-  
-//   $this->post('/', \usuarioApi::class . ':CargarUno');
-  
-//   $this->post('/login', \usuarioApi::class . ':CrearToken')->add(\MWparaCORS::class . ':HabilitarCORSTodos'); 
-
-//   //$this->delete('/', \usuarioApi::class . ':BorrarUno');
-
-//   //$this->put('/', \usuarioApi::class . ':ModificarUno');
-     
-// })->add(\MWparaCORS::class . ':HabilitarCORS8080');
-
 $app->group('/login', function () {
  
   //$this->get('/', \usuarioApi::class . ':traerTodos')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
@@ -45,6 +29,23 @@ $app->group('/login', function () {
   //$this->put('/', \usuarioApi::class . ':ModificarUno');
      
 })->add(\MWparaCORS::class . ':HabilitarCORS8080');
+
+$app->group('/usuario', function () {
+ 
+  $this->get('/', \usuarioApi::class . ':traerTodos')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  
+  //$this->get('/{id}', \usuarioApi::class . ':traerUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  
+  $this->post('/', \usuarioApi::class . ':CargarUno');
+  
+  $this->post('/login', \usuarioApi::class . ':CrearToken')->add(\MWparaCORS::class . ':HabilitarCORSTodos'); 
+
+  //$this->delete('/', \usuarioApi::class . ':BorrarUno');
+
+  //$this->put('/', \usuarioApi::class . ':ModificarUno');
+     
+})->add(\MWparaCORS::class . ':HabilitarCORS8080');
+
 
 $app->run();
 ?>
