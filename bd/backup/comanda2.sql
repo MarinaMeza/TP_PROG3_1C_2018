@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2018 a las 22:03:30
+-- Tiempo de generación: 19-08-2018 a las 00:27:08
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -58,25 +58,6 @@ CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `estados`
---
-
-INSERT INTO `estados` (`id`, `nombre`) VALUES
-(1, 'Pendiente'),
-(2, 'En preparación'),
-(3, 'Listo para servir'),
-(4, 'Pendiente'),
-(5, 'Con clientes esperando pedido'),
-(6, 'Con clientes comiendo'),
-(7, 'Con clientes pagando'),
-(8, 'Cerrada'),
-(9, 'Trabajando'),
-(10, 'De vacaciones'),
-(11, 'Enfermo'),
-(12, 'Suspendido'),
-(13, 'Despedido');
 
 -- --------------------------------------------------------
 
@@ -152,44 +133,6 @@ CREATE TABLE `mesas` (
   `codigoMesa` varchar(5) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `mesas`
---
-
-INSERT INTO `mesas` (`id`, `codigoMesa`) VALUES
-(1, '10101'),
-(2, '10102'),
-(3, '10103'),
-(4, '10104'),
-(5, '10105'),
-(6, '10106'),
-(7, '10107'),
-(8, '10201'),
-(9, '10202'),
-(10, '10203'),
-(11, '10204'),
-(12, '10205'),
-(13, '10206'),
-(14, '10207'),
-(15, '10301'),
-(16, '10302'),
-(17, '10303'),
-(18, '10304'),
-(19, '10305'),
-(20, '10306'),
-(21, '20101'),
-(22, '20102'),
-(23, '20103'),
-(24, '20104'),
-(25, '20105'),
-(26, '20106'),
-(27, '20201'),
-(28, '20202'),
-(29, '20203'),
-(30, '20204'),
-(31, '20205'),
-(32, '20206');
-
 -- --------------------------------------------------------
 
 --
@@ -230,26 +173,6 @@ CREATE TABLE `sectores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(10) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `sectores`
---
-
-INSERT INTO `sectores` (`id`, `nombre`) VALUES
-(1, 'Bar'),
-(2, 'Barra'),
-(3, 'Cocina'),
-(4, 'Candy Bar'),
-(5, 'Salón 1'),
-(6, 'Salón 2'),
-(7, 'Salón 3'),
-(8, 'Patio 1'),
-(9, 'Patio 2'),
-(10, 'Socio'),
-(11, 'Mozo'),
-(12, 'Cocinero'),
-(13, 'Bartender'),
-(14, 'Cervecero');
 
 -- --------------------------------------------------------
 
@@ -408,7 +331,7 @@ ALTER TABLE `encuestas`
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fotos`
@@ -444,7 +367,7 @@ ALTER TABLE `mesapedido`
 -- AUTO_INCREMENT de la tabla `mesas`
 --
 ALTER TABLE `mesas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
@@ -462,7 +385,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `sectores`
 --
 ALTER TABLE `sectores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tickets`
