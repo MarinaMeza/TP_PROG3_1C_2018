@@ -8,6 +8,7 @@ require_once './clases/AutentificadorJWT.php';
 require_once './clases/MWparaCORS.php';
 require_once './clases/MWparaAutentificar.php';
 require_once './clases/loginApi.php';
+require_once './clases/UsuarioApi.php';
 
 $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
@@ -38,7 +39,7 @@ $app->group('/usuario', function () {
   
   $this->post('/', \usuarioApi::class . ':CargarUno');
   
-  $this->post('/login', \usuarioApi::class . ':CrearToken')->add(\MWparaCORS::class . ':HabilitarCORSTodos'); 
+  //$this->post('/login', \usuarioApi::class . ':CrearToken')->add(\MWparaCORS::class . ':HabilitarCORSTodos'); 
 
   //$this->delete('/', \usuarioApi::class . ':BorrarUno');
 
