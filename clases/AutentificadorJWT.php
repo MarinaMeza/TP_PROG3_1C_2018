@@ -21,11 +21,11 @@ class AutentificadorJWT
             'exp' => $ahora + (60*60),
             'aud' => self::Aud(),
             'data' => $datos,
-            'app'=> "API REST MEDIAS 2018"
+            'app'=> "Comanda 2018"
         );
      
         return JWT::encode($payload, self::$claveSecreta);
-    }
+    }   
     
     public static function VerificarToken($token)
     {

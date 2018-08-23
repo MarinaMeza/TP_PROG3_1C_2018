@@ -6,6 +6,7 @@ class loginApi extends Login /*implements IApiUsable*/{
 
     public function CrearToken($request, $response, $args) {
         $ArrayDeParametros = $request->getParsedBody();
+        // var_dump($ArrayDeParametros);
         $nombre= $ArrayDeParametros['nombre'];
         $clave= $ArrayDeParametros['clave'];
 //        $sexo= $ArrayDeParametros['sexo'];
