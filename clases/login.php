@@ -12,7 +12,7 @@ class Login{
         $consulta->bindValue(':clave', $this->clave, PDO::PARAM_STR);
         $consulta->execute();
         return $objetoAccesoDato->RetornarUltimoIdInsertado();
-    }
+    }   
 
     public static function TraerTodosLosLogins() {
         $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

@@ -11,7 +11,6 @@ class Usuario{
     public $idEstado;
 
     public function InsertarUsuarioParametros() {
-        $cant = 23;
         $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
         $consulta =$objetoAccesoDato->RetornarConsulta("
             INSERT into usuarios (nombre,apellido,dni,idFuncion,idSector,idEstado)
@@ -52,6 +51,19 @@ class Usuario{
         $consulta->execute();
         $usuarioBuscado = $consulta->fetchObject('Usuario');
         return $usuarioBuscado; 
+    }
+
+    public static function nuevaFechaLogin($nombre) {
+        date_default_timezone_set("America/Argentina/Buenos_Aires");
+        $tiempo = date('d-m-Y H:i:s');
+        $apellido = substr($nombre, 0);
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta = $objetoAccesoDato->RetornarConsulta("
+        UPDATE `usuarios` SET `fechaLogin`= $tiempo 
+        WHERE apellido = $apellido");
+        $consulta->execute();
+        // $usuarioBuscado = $consulta->fetchObject('Usuario');
+        // return $usuarioBuscado; 
     }
 }
 ?>
