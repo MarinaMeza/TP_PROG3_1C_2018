@@ -36,7 +36,7 @@ class Usuario{
 
     public static function TraerTodosLosUsuarios() {
         $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-        $consulta =$objetoAccesoDato->RetornarConsulta("select id,nombre,apellido,dni,perfil from usuario");
+        $consulta =$objetoAccesoDato->RetornarConsulta("select id,nombre,apellido,dni,perfil from usuarios");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_CLASS, "Usuario");		
     }
@@ -65,5 +65,35 @@ class Usuario{
         // $usuarioBuscado = $consulta->fetchObject('Usuario');
         // return $usuarioBuscado; 
     }
+
+    public static function TraerTodosLosHorarios() {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        //$consulta =$objetoAccesoDato->RetornarConsulta("select id,nombre,apellido,dni from usuarios");
+        $consulta =$objetoAccesoDato->RetornarConsulta("select id,codigoMesa from mesas");
+        $consulta->execute();
+        
+        // $tabla = "<div class='table-responsive'> <table class='table table-striped table-sm'>
+        // <thead><tr><th>ID</th><th>Nombre</th></tr></thead><tbody>";
+        // while($row = $consulta->fetch()){
+        //     $tabla .= "<tr><td>".$row['id']."</td><td>".$row['codigoMesa']."</td></tr>";
+        // }
+        // $tabla .= "<tbody></table></div>";
+        $tabla = "<div class='table-responsive'> <table class='table table-striped table-sm'>
+        <thead><tr><th>ID</th><th>Nombre</th></tr></thead><tbody>";
+        while($row = $consulta->fetch()){
+            $tabla .= "<tr><td>".$row['id']."</td><td>".$row['codigoMesa']."</td></tr>";
+        }
+        $tabla .= "<tbody></table></div>";
+        
+        $respuesta = "<script>
+            let p = document.querySelector('p');
+            p.innerText = ".$tabla.";
+            nav.classList.toggle('abierto');
+        </script>";
+        
+
+        echo $respuesta;
+    }
+
 }
 ?>

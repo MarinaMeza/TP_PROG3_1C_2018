@@ -70,6 +70,13 @@ class usuarioApi extends Usuario implements IApiUsable{
         return $newresponse;
     }
 
+    public function TraerTodosHorarios($request, $response, $args) {
+        // $todosLosUsuarios=Usuario::TraerTodosLosHorarios();
+        // $newresponse = $response->withJson($todosLosUsuarios, 200);  
+        // return $newresponse;
+        return Usuario::TraerTodosLosHorarios();
+    }
+
     public function BorrarUno($request, $response, $args) {/*
         $ArrayDeParametros = $request->getParsedBody();
         $id=$ArrayDeParametros['id'];

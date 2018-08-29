@@ -1,0 +1,281 @@
+/*Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    
+
+    /*
+        La regla de box sizing nos sirve para establecer de que forma se va a calcular la dimension de una caja. Puede tomar dos valores , content-box(default) o border-box (que hace que el borde y el padding no cuenten para el ancho final)
+    */
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    /*
+        Por defecto un flex viene prconfigurado con tres reglas : direccion , wrap y alineacion vertical. 
+    */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f5d34a;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3)
+}
+
+header h1 , header a , footer{
+    color:  #4e342e;
+}
+
+/* .material-icons.md-18 { font-size: 18px; } */
+a i {
+    margin-right: 5px;
+    position: relative;
+    bottom: 2px;
+    vertical-align: middle;
+}
+
+a, a:hover/*, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn:focus, .btn-primary:active*/{
+    margin: 0 14px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #5d4037;
+    /* background-color: #ff7961; */
+    border-style: none;
+    box-shadow: 0;
+}
+.menu {
+    position: fixed;
+    top: 60pt;
+    display: flex;
+    /* background-color: white; */
+    width: 16%;
+    justify-content: initial;
+    align-items: center;
+    flex-direction: column;
+    transition: all 1s ease;
+    z-index: 2;
+    height: 100%;
+}
+/* .btn-primary {
+    background-color: #ff7961;
+    border-style: none;
+    color: #4e342e;
+    margin: 0 14px;
+} */
+
+
+.btn-menu { 
+    color: #4E342E; 
+    background-color: #FF7961; 
+    border-color: #FFAB8F; 
+    margin-bottom: 10px;
+    text-align: left;
+    vertical-align: middle;
+    display: inline-flex;
+  } 
+   
+  .btn-menu:hover, 
+  .btn-menu:focus, 
+  .btn-menu:active, 
+  .btn-menu.active, 
+  .open .dropdown-toggle.btn-menu { 
+    color: #4E342E; 
+    background-color: #C74936; 
+    border-color: #FFAB8F; 
+  } 
+   
+  .btn-menu:active, 
+  .btn-menu.active, 
+  .open .dropdown-toggle.btn-menu { 
+    background-image: none; 
+  } 
+   
+  .btn-menu.disabled, 
+  .btn-menu[disabled], 
+  fieldset[disabled] .btn-menu, 
+  .btn-menu.disabled:hover, 
+  .btn-menu[disabled]:hover, 
+  fieldset[disabled] .btn-menu:hover, 
+  .btn-menu[disabled]:focus, 
+  fieldset[disabled] .btn-menu:focus, 
+  .btn-menu.disabled:active, 
+  .btn-menu[disabled]:active, 
+  fieldset[disabled] .btn-menu:active, 
+  .btn-menu.disabled.active, 
+  .btn-menu[disabled].active, 
+  fieldset[disabled] .btn-menu.active { 
+    background-color: #FF7961; 
+    border-color: #FFAB8F; 
+  } 
+   
+  .btn-menu .badge { 
+    color: #FF7961; 
+    background-color: #4E342E; 
+  }
+
+ul{
+    list-style: none;
+    text-align: right;
+}
+
+.menu div, .menu button {
+    width: 90%;
+}
+
+/* .boton { */
+    /* position: fixed; */
+    /* display: flex;
+    flex-direction: column;  */
+    /* transition: all 1s ease;
+    z-index: 2; */
+    /* bottom: -20%; */
+    /* font-size: 16pt; */
+    /* text-align: left;
+    background-color: #ff7961;
+    width: 90%;
+    padding: 4px 0;
+    margin: 2px 0;
+    border-radius: 5px;
+    height: 30pt;
+    font-size: 16pt;
+} */
+/* 
+.menu>div.lista{
+    // margin-right: 25pt;
+    transition: all 10s ease;
+    z-index: 2;
+    width: 85%;
+    text-align: right;
+    font-size: 12pt;
+    background-color: blue;
+    height: 0;
+    clear: both;
+    min-height: 0px;
+
+} */
+/* 
+div.lista ul li {
+    list-style: none;
+    font-size: 12pt;
+} */
+
+/* div a+ul {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 1s ease;
+    text-align: right;
+    font-size: 12pt;
+    /* color: #f5d34a; */
+    /* list-style: none;
+}
+
+div a:focus+ul {
+    max-height: 15em;
+    height: auto;
+    background-color: aqua;
+}
+
+a:focus {
+    pointer-events: none;
+} */  
+.boton a+ul {
+    margin-right: 10pt;
+    max-height: 0px;
+    overflow: hidden;
+    transition: 1s ease;
+    text-align: right;
+    font-size: 12pt;
+    /* color: #f5d34a; */
+    list-style: none;
+}
+
+.boton a:focus+ul {
+    max-height: 15em;
+    height: auto;
+    background-color: aqua;
+}
+
+a:focus {
+    pointer-events: none;
+}
+/* 
+a:nth-child(2) {
+    margin: 0 8px;
+} */
+
+main {
+    width: pushed;
+    padding: 16px;
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #f5d34a;
+    padding: 16px;
+    text-align: center;
+}
+/*
+    Altura :
+
+    FIJA : (Ej.: px) Cualquier caja puede tomar en cualquier momento una altura absoluta
+
+    RELATIVAS : (Ej.: %) Para que una caja pueda calcular su altura en porcentaje su padre directo tiene que tener una altura absoluta(fija) ó que tenga una altura relativa precalculada
+*/
+header nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 8px 0px 10px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    z-index: 2;
+    background-color: #f44336;
+    width: 50%;
+    max-width: 220px;
+    height: 100%;
+}
+
+.abierto {
+    left: 0;
+}
+
+/* .desplegado {
+    height: auto;
+} */
+
+button {
+    border: none;
+    background: transparent;
+    color: #4e342e;
+    margin-right: 8px;
+    position: relative;
+    z-index: 5
+}
+/* 
+
+ul a +ul {
+    max-height:0;
+    overflow:hidden;
+    transition:0.5s ease;
+    }
+  ul a:focus + ul {
+    max-height:15em;
+    }
+  a:focus {
+    pointer-events:none;
+    }    */
