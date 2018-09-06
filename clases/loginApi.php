@@ -16,7 +16,8 @@ class loginApi extends Login /*implements IApiUsable*/{
             $newResponse = "Los datos ingresados son incorrectos";
         } else {
             $usuario = new Usuario();
-            $usuario->nuevaFechaLogin($nombre);
+            $usuario = Usuario::TraerUnUsuario($nombre, $clave);
+            Login::nuevaFechaLogin($usuario->id);
             $data = array('nombre' => $nombre, 'clave' => $clave);
             $token = AutentificadorJWT::CrearToken($data);
             $newResponse = $response->withJson($token, 200);
