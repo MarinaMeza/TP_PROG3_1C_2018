@@ -52,6 +52,8 @@ $app->group('/login', function () {
      
 })->add(\MWparaCORS::class . ':HabilitarCORS8080');
 
+
+
 $app->group('/mesa', function () {
  
   $this->get('/', function(Request $request, Response $response){
@@ -72,6 +74,7 @@ $app->group('/mesa', function () {
 })->add(\MWparaCORS::class . ':HabilitarCORS8080');
 
 
+
 $app->group('/usuarios', function () {
  
   $this->get('/', function(Request $request, Response $response,array $args){
@@ -79,15 +82,27 @@ $app->group('/usuarios', function () {
     return $this->renderer->render($response, "usuarios.html");
   })->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 
-  $this->get('/horarios', \UsuarioApi::class . ':traerTodosHorarios')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  // $this->get('/horarios', \UsuarioApi::class . ':traerTodosHorarios')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
   
 
   //$this->get('/', \usuarioApi::class . ':traerTodosHorarios')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
   //$this->get('/', \usuarioApi::class . ':traerTodos')->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
   
   //$this->get('/{id}', \usuarioApi::class . ':traerUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
-  
-  //$this->post('/', \usuarioApi::class . ':CargarUno');
+  $this->get('/ingresos', \loginApi::class . ':TraerTodosLogins');
+
+  $this->post('/', \usuarioApi::class . ':CargarUno');
+
+  $this->delete('/', \usuarioApi::class . ':BorrarUno');
+
+  $this->put('/', \usuarioApi::class . ':ModificarUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+
+
+  $this->get('/porsector', \usuarioApi::class . ':OperacionesSector');
+
+  $this->get('/porsectorempleado', \usuarioApi::class . ':OperacionesSectorEmpleado');
+
+  $this->get('/porempleado', \usuarioApi::class . ':OperacionesEmpleado');
   
   //$this->post('/login', \usuarioApi::class . ':CrearToken')->add(\MWparaCORS::class . ':HabilitarCORSTodos'); 
 

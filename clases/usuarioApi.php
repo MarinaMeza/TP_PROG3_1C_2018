@@ -1,5 +1,6 @@
 <?php
 require_once 'usuario.php';
+require_once 'login.php';
 require_once 'IApiUsable.php';
 
 class usuarioApi extends Usuario implements IApiUsable{
@@ -33,7 +34,7 @@ class usuarioApi extends Usuario implements IApiUsable{
         $ArrayDeParametros = $request->getParsedBody();
         $id = $ArrayDeParametros['id'];
         $usuario = new Usuario();
-        $usuario->id = $id;
+        $usuario->idUsuario = $id;
         $cantidadDeBorrados = $usuario->BorrarUsuario();
 
         $objDelaRespuesta = new stdclass();
@@ -41,12 +42,32 @@ class usuarioApi extends Usuario implements IApiUsable{
         if($cantidadDeBorrados > 0) {
             $objDelaRespuesta->resultado = "El usuario ha sido borrado";
         } else {
-            $objDelaRespuesta->resultado="No fue posible borrar el usuario<br>".$ArrayDeParametros;
+            $objDelaRespuesta->resultado = "No fue posible borrar el usuario<br>".$ArrayDeParametros;
         }
         $newResponse = $response->withJson($objDelaRespuesta, 200);  
         return $newResponse;
     }
 
+    public function ModificarUno($request, $response, $args) {
+        $ArrayDeParametros = $request->getParsedBody();
+        // var_dump($ArrayDeParametros);
+        $miUsuario = new Usuario();
+        $miUsuario->idUsuario = $ArrayDeParametros['id'];
+        $miUsuario->nombre = $ArrayDeParametros['nombre'];
+        $miUsuario->apellido = $ArrayDeParametros['apellido'];
+        $miUsuario->dni = $ArrayDeParametros['dni'];
+        $miUsuario->idSector = $ArrayDeParametros['idSector'];
+        $miUsuario->idFuncion = $ArrayDeParametros['idFuncion'];
+        $miUsuario->idEstado = $ArrayDeParametros['idEstado'];
+        
+        var_dump($miUsuario->nombre);
+        $resultado = $miUsuario->ModificarUsuario();
+        $objDelaRespuesta= new stdclass();
+        //var_dump($resultado);
+        $objDelaRespuesta->resultado=$resultado;
+        $objDelaRespuesta->tarea = "modificar";
+        return $response->withJson($objDelaRespuesta, 200);
+    }
     //
     public function TraerUno($request, $response, $args) {
         /*$nombre=$args['nombre'];
@@ -72,8 +93,23 @@ class usuarioApi extends Usuario implements IApiUsable{
         return $newresponse;
     }
 
+    public function OperacionesSector($request, $response, $args) {
+        $todosLosUsuarios=Usuario::TraerOperacionesSector();
+        $newresponse = $response->withJson($todosLosUsuarios, 200);  
+        return $newresponse;
+    }
 
+    public function OperacionesSectorEmpleado($request, $response, $args) {
+        $todosLosUsuarios=Usuario::TraerOperacionesSectorEmpleado();
+        $newresponse = $response->withJson($todosLosUsuarios, 200);  
+        return $newresponse;
+    }
 
+    public function OperacionesEmpleado($request, $response, $args) {
+        $todosLosUsuarios=Usuario::TraerOperacionesEmpleado();
+        $newresponse = $response->withJson($todosLosUsuarios, 200);  
+        return $newresponse;
+    }
     // public function TraerTodosHorarios($request, $response, $args) {
     //     $todosLosUsuarios=Usuario::TraerTodosLosHorarios();
     //     $newresponse = $response->withJson($todosLosUsuarios, 200); 
@@ -84,23 +120,6 @@ class usuarioApi extends Usuario implements IApiUsable{
 
     
     
-
-    public function ModificarUno($request, $response, $args) {
-        //$response->getBody()->write("<h1>Modificar  uno</h1>");
-        //$ArrayDeParametros = $request->getParsedBody();
-        //var_dump($ArrayDeParametros);    	
-        /*$miUsuario = new Usuario();
-        $miUsuario->id=$ArrayDeParametros['id'];
-        $miUsuario->nombre=$ArrayDeParametros['nombre'];
-        $miUsuario->apellido=$ArrayDeParametros['apellido'];
-        
-        $resultado =$miUsuario->ModificarUsuarioParametros();
-        $objDelaRespuesta= new stdclass();
-        //var_dump($resultado);
-        $objDelaRespuesta->resultado=$resultado;
-        $objDelaRespuesta->tarea="modificar";
-        return $response->withJson($objDelaRespuesta, 200);*/
-   }
 
 }
 ?>

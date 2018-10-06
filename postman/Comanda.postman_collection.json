@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "2076e08c-3826-4783-8da8-8e6b44f3ff7b",
+		"name": "Comanda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "gmendoza",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "29823970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "gmendoza",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "29823970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cargar un usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "Cecilia",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Meza",
+									"type": "text"
+								},
+								{
+									"key": "dni",
+									"value": "30291102",
+									"type": "text"
+								},
+								{
+									"key": "idFuncion",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "idSector",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "idEstado",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "operaciones por sector",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/porsector",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								"porsector"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "operaciones por sector y empleado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/porsectorempleado",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								"porsectorempleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "operaciones por empleado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/porempleado",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								"porempleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar un usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar un usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "victoria",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "perez",
+									"type": "text"
+								},
+								{
+									"key": "dni",
+									"value": "5776660",
+									"type": "text"
+								},
+								{
+									"key": "idFuncion",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "idSector",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "idEstado",
+									"value": "11",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/TP/index.php/usuarios/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"TP",
+								"index.php",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

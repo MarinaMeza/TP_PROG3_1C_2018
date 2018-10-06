@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,7 +16,8 @@
 <body class="text-center">
     <header>
 		<button class="material-icons" id="btn">menu</button>
-		<h1>Título</h1>
+		<h1> Comanda</h1>
+		<button class="material-icons" id="mas">more_vert</button>
 		<nav id="nav">
 			<!-- <div class="menu">
 				<div class="boton">
@@ -56,21 +57,36 @@
 			<div class="menu">
 				<button class="btn btn-menu btn-block" id="empleados" type="button" data-toggle="collapse" data-target="#collapseEmpleados" aria-expanded="false" aria-controls="collapseEmpleados"><i class="material-icons">people</i> Empleados</button>
 				<div class="collapse" aria-labelledby="empleados" data-parent=".menu" id="collapseEmpleados">
-					<ul><li><a href='#' id=''>Ingresos al sistema</a></li><li><a href='#' id=''>Operaciones</a></li></li><li><a href='#' id=''>Administracion</a></li></ul>
+					<ul>
+						<li><button id='ingresos'>Ingresos al sistema</button></li>
+						<li><a id='operaciones'>Operaciones</a></li></li>
+						<li><a href='#' id='administracion'>Administracion</a></li>
+					</ul>
 				</div>
 				<button class="btn btn-menu btn-block" id="pedidos" type="button" data-toggle="collapse" data-target="#collapsePedidos" aria-expanded="false" aria-controls="collapsePedidos"><i class="material-icons">people</i> Pedidos</button>
 				<div class="collapse" aria-labelledby="pedidos" data-parent=".menu" id="collapsePedidos">
-					<ul><li><a href='#' id=''>Ventas</a></li><li><a href='#' id=''>Demorados</a></li></li><li><a href='#' id=''>Cancelados</a></li></ul>
+					<ul>
+						<li><a href='#' id='ventas'>Ventas</a></li>
+						<li><a href='#' id='demorados'>Demorados</a></li>
+					</li><li><a href='#' id='cancelados'>Cancelados</a></li>
+				</ul>
 				</div>
 				<button class="btn btn-menu btn-block" id="mesas" type="button" data-toggle="collapse" data-target="#collapseMesas" aria-expanded="false" aria-controls="collapseMesas"><i class="material-icons">people</i> Mesas</button>
 				<div class="collapse" aria-labelledby="mesas" data-parent=".menu" id="collapseMesas">
-					<ul><li><a href='#' id=''>Ocupación</a></li><li><a href='#' id=''>Facturación</a></li></li><li><a href='#' id=''>Comentarios</a></li></ul>
+					<ul>
+						<li>
+							<button id="ocupacion">Ocupación</button>
+							<!-- -<a href='#' id="ocupacion">Ocupación</a> -->
+						</li>
+						<li><a href='#' id='facturacion'>Facturación</a>
+						</li></li><li><a href='#' id='comentarios'>Comentarios</a></li>
+					</ul>
 				</div>	
 			</div>
 		</nav>
 	</header>
 	<main>
-		<p> </p>
+		<p id="cosas"> </p>
 	</main>
 	<footer>
 		<p>&copy; Copyright - 2018</p>
